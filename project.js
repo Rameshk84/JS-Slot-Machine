@@ -25,6 +25,8 @@ const SYMBOL_VALUES = {
     D: 2,
 };
 
+
+// 1. Despot some money
 const deposit = () => {
     while (true) {
         const depositAmount = prompt("Enter a deposit amount: ");
@@ -37,6 +39,9 @@ const deposit = () => {
         }
     }
 };
+
+// 2. Determine number of lines to bet on
+
 
 const getNumberOfLines = () => {
     while (true) {
@@ -51,6 +56,9 @@ const getNumberOfLines = () => {
     }
 };
 
+
+// 3. Collect a bet amount
+
 const getBet = (balance, lines) => {
     while (true) {
         const bet = prompt("Enter the bet per line: ");
@@ -63,7 +71,10 @@ const getBet = (balance, lines) => {
         }
     }
 };
- 
+
+
+// 4. Spin the slot machine
+
 const spin = () => {
     const symbols = [];
     for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
@@ -86,6 +97,7 @@ const spin = () => {
 
     return reels;
 };
+
 
 const transpose = (reels) => {
     const rows = [];
@@ -113,6 +125,10 @@ const printRows = (rows) => {
     }
 };
 
+
+
+// 5. check if the user won
+
 const getWinnings = (rows, bet, lines) => {
     let winnings = 0;
 
@@ -126,6 +142,7 @@ const getWinnings = (rows, bet, lines) => {
                 break;
             }
         }
+// 6. give the user their winnings
 
         if (allSame) {
             winnings += bet * SYMBOL_VALUES[symbols[0]];
@@ -135,6 +152,8 @@ const getWinnings = (rows, bet, lines) => {
     return winnings;
 };
 
+
+// 7. play again
 const game = () => {
     let balance = deposit();
 
